@@ -6,7 +6,7 @@ import 'package:instagram_clone_flutter/resources/auth_methods.dart';
 import 'package:instagram_clone_flutter/responsive/mobile_screen_layout.dart';
 import 'package:instagram_clone_flutter/responsive/responsive_layout.dart';
 import 'package:instagram_clone_flutter/responsive/web_screen_layout.dart';
-import 'package:instagram_clone_flutter/screens/login_screen.dart';
+import 'package:instagram_clone_flutter/pages/login_screen.dart';
 import 'package:instagram_clone_flutter/utils/colors.dart';
 import 'package:instagram_clone_flutter/utils/utils.dart';
 import 'package:instagram_clone_flutter/widgets/text_field_input.dart';
@@ -48,7 +48,7 @@ class _SignupScreenState extends State<SignupScreen> {
         bio: _bioController.text,
         file: _image!);
     // if string returned is sucess, user has been created
-    if (res == "success") {
+    if (res == "successs") {
       setState(() {
         _isLoading = false;
       });
@@ -158,7 +158,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                hintText: 'Enter your bio',
+                hintText: 'Enter your Bio',
                 textInputType: TextInputType.text,
                 textEditingController: _bioController,
               ),
@@ -211,7 +211,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: const Text(
-                        ' Login.',
+                        ' Login',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

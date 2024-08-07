@@ -6,7 +6,7 @@ import 'package:instagram_clone_flutter/providers/user_provider.dart';
 import 'package:instagram_clone_flutter/responsive/mobile_screen_layout.dart';
 import 'package:instagram_clone_flutter/responsive/responsive_layout.dart';
 import 'package:instagram_clone_flutter/responsive/web_screen_layout.dart';
-import 'package:instagram_clone_flutter/screens/login_screen.dart';
+import 'package:instagram_clone_flutter/pages/login_screen.dart';
 import 'package:instagram_clone_flutter/utils/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -17,12 +17,11 @@ void main() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
-        apiKey: "AIzaSyDHr01rNaAdiTHXDx9SMkGXlUa9qdHgAT8",
-        projectId: "instagram-d6cb5",
-        storageBucket: "instagram-d6cb5.appspot.com",
-        messagingSenderId: "401974953862",
-        appId: "1:401974953862:web:29f2bed4cc12ad33b58e07"
-      ),
+          apiKey: "AIzaSyDHr01rNaAdiTHXDx9SMkGXlUa9qdHgAT8",
+          projectId: "instagram-d6cb5",
+          storageBucket: "instagram-d6cb5.appspot.com",
+          messagingSenderId: "401974953862",
+          appId: "1:401974953862:web:29f2bed4cc12ad33b58e07"),
     );
   } else {
     await Firebase.initializeApp();
@@ -37,11 +36,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => UserProvider(),),
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Instagram Clone',
+        title: 'Instagram',
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: mobileBackgroundColor,
         ),
