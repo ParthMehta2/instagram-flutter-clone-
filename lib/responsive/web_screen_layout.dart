@@ -33,7 +33,6 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
   }
 
   void navigationTapped(int page) {
-    //Animating Page
     pageController.jumpToPage(page);
     setState(() {
       _page = page;
@@ -51,49 +50,41 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
           color: primaryColor,
           height: 32,
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.home,
-              color: _page == 0 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(0),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: _page == 1 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(1),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.add_a_photo,
-              color: _page == 2 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(2),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.favorite,
-              color: _page == 3 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(3),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.person,
-              color: _page == 4 ? primaryColor : secondaryColor,
-            ),
-            onPressed: () => navigationTapped(4),
-          ),
-        ],
       ),
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         onPageChanged: onPageChanged,
         children: homeScreenItems,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: mobileBackgroundColor,
+        selectedItemColor: primaryColor,
+        unselectedItemColor: secondaryColor,
+        currentIndex: _page,
+        onTap: navigationTapped,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle),
+            label: 'Post',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }
